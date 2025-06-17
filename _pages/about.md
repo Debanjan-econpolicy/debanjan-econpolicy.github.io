@@ -24,7 +24,7 @@ My academic work/projects can be found **here**.
 
 My research sits at the intersection of **public policy and development economics**, with a particular focus on enterprise development and financial inclusion. I am especially interested in how targeted interventions can help micro and nano enterprises—particularly those operating in informal markets—grow, formalize, and become more resilient. My work engages directly with community-based institutions and rural entrepreneurs, exploring how well-designed programs can address the structural constraints that limit enterprise growth in developing countries.
 
-I approach these questions using field experiments and quasi-experimental designs, always with an eye toward improving both program effectiveness and the empirical methods we use to evaluate them.
+I approach these questions using rigorous field experiments and quasi-experimental designs, always with an eye toward improving both program effectiveness and the empirical methods we use to evaluate them. My fieldwork spans Tamil Nadu and Gujarat, where I collaborate closely with local institutions to understand how financial inclusion and enterprise support programs can be better designed and implemented.
 
 Beyond enterprise development, I am deeply interested in **survey methodology**—particularly in developing innovative interviewer training approaches that enhance data quality in large-scale household surveys. This methodological work complements my substantive research by ensuring that our evidence base is as robust as possible.
 
@@ -34,6 +34,9 @@ I enjoy bridging complex field realities with rigorous empirical analysis, incor
 
 Proponent of **#CausalInference** and evidence-based policymaking.
 
+## Research Focus
+
+If you know of interesting field experiment opportunities or innovative approaches to measuring enterprise development, I'd be very happy to hear about it.
 
 ## Interests
 
@@ -49,7 +52,7 @@ Proponent of **#CausalInference** and evidence-based policymaking.
 ## Education
 
 * Ph.D. candidate in Development Economics, Institute of Rural Management Anand (IRMA), India
-* M.A. in Economics, [Your Master's Institution]
-* B.A. in Economics, [Your Bachelor's Institution]
+* M.Sc. in Agricultural Economics, ICAR-National Dairy Research Institute
+
 
 My CV can be found [here](/files/cv.pdf).
