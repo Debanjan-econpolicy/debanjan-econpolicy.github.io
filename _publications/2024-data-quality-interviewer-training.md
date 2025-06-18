@@ -1,10 +1,12 @@
 ---
 title: "Data Quality and Autonomy-Supportive Agentic Feedback: Evidence from an Interviewer Training Experiment"
 collection: publications
+category: manuscripts   
 permalink: /publication/2024-data-quality-interviewer-training
 excerpt: 'This study investigates how innovative interviewer training approaches enhance data quality in large-scale household surveys in developing countries.'
 date: 2024-01-01
 venue: 'Working Paper'
+layout: single
 paperurl: '#'
 ---
 
