@@ -4,10 +4,10 @@ collection: publications
 category: manuscripts   
 permalink: /publication/2024-neff-rural-enterprises
 excerpt: 'This study investigates how alleviating liquidity constraints influences the production function and performance of rural nano enterprises using a natural experiment with 2,576 firms across 208 villages.'
-venue: 'Working Paper'
 layout: single
-paperurl: '#'
 ---
+
+**Status:** Working Paper
 
 ## Abstract
 

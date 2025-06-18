@@ -4,10 +4,10 @@ collection: publications
 category: manuscripts   
 permalink: /publication/2024-honesty-enterprise-performance
 excerpt: 'This study examines whether honesty influences enterprise performance in informal markets using a novel field experiment with 2,576 nano-enterprises across 208 villages in Tamil Nadu.'
-venue: 'Working Paper'
 layout: single
-paperurl: '#'
 ---
+
+**Status:** Working Paper
 
 ## Abstract
 

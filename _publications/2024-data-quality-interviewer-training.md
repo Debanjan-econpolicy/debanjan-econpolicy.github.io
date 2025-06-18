@@ -4,11 +4,10 @@ collection: publications
 category: manuscripts   
 permalink: /publication/2024-data-quality-interviewer-training
 excerpt: 'This study investigates how innovative interviewer training approaches enhance data quality in large-scale household surveys in developing countries.'
-date: 2024-01-01
-venue: 'Working Paper'
 layout: single
-paperurl: '#'
 ---
+
+**Status:** Working Paper
 
 ## Abstract
 
