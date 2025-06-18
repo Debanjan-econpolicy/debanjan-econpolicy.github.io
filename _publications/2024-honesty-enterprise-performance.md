@@ -1,9 +1,9 @@
 ---
 title: "Does Honesty Pay? Evidence from a Field Experiment on Dishonesty and Enterprise Performance in Informal Markets"
 collection: publications
+category: manuscripts   
 permalink: /publication/2024-honesty-enterprise-performance
 excerpt: 'This study examines whether honesty influences enterprise performance in informal markets using a novel field experiment with 2,576 nano-enterprises across 208 villages in Tamil Nadu.'
-date: 2024-04-01
 venue: 'Working Paper'
 layout: single
 paperurl: '#'

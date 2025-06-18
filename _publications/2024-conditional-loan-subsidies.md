@@ -1,9 +1,9 @@
 ---
 title: "Impact of Conditional Loan Subsidies on Small and Medium Enterprise Performance: Evidence from Tamil Nadu"
 collection: publications
+category: manuscripts   
 permalink: /publication/2024-conditional-loan-subsidies
 excerpt: 'This study investigates how conditional loan subsidies paired with managerial training affect production choices and performance of SMEs using quasi-experimental variation from administrative rejections.'
-date: 2024-03-01
 venue: 'Working Paper'
 layout: single
 paperurl: '#'
