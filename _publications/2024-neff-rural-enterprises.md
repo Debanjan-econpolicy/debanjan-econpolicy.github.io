@@ -1,6 +1,7 @@
 ---
 title: "Post-Pandemic Resilience and Growth: Evaluating the Impact of the Nano Enterprise Financing Fund (NEFF) on Rural Enterprises in Tamil Nadu"
 collection: publications
+category: manuscripts   
 permalink: /publication/2024-neff-rural-enterprises
 excerpt: 'This study investigates how alleviating liquidity constraints influences the production function and performance of rural nano enterprises using a natural experiment with 2,576 firms across 208 villages.'
 date: 2024-02-01
