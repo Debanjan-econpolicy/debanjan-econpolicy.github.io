@@ -23,7 +23,7 @@ remote_theme             : "mmistakes/minimal-mistakes"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.jpg"
+  avatar           : "/images/profile.jpg"
   name             : "Debanjan Das"
   pronouns         : # example: "she/her"  
   bio              : "PhD Student studying public policy and  development economics at Institute of Rural Management Anand (IRMA)"
