@@ -4,7 +4,7 @@ collection: teaching
 type: "Graduate course"
 permalink: /teaching/2024-social-network-analysis
 venue: "Institute of Rural Management Anand (IRMA)"
-date: 2024-01-01
+date: 2024-08-01
 location: "Gujarat, India"
 ---
 
