@@ -1,19 +1,19 @@
 ---
-layout: archive
+title: "Blog Posts"
 permalink: /year-archive/
-title: "Blog posts"
+layout: single
 author_profile: true
-redirect_from:
-  - /wordpress/blog-posts/
 ---
 
-{% include base_path %}
-{% capture written_year %}'None'{% endcapture %}
-{% for post in site.posts %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% if year != written_year %}
-    <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
-    {% capture written_year %}{{ year }}{% endcapture %}
-  {% endif %}
-  {% include archive-single.html %}
-{% endfor %}
+## Coming Soon! 📝
+
+I'm planning to start a blog where I'll share insights about:
+
+- **Causal Inference Methods** - Practical applications and interpretations
+- **Development Economics** - Field experiences and research insights  
+- **Academic Life** - PhD journey, and lessons learned
+
+
+**Stay tuned!** Follow me on [Twitter](https://twitter.com/debanjan1603) or [LinkedIn](https://linkedin.com/in/debanjan-das-a6286b165) for updates.
+
+*Expected first post: July 2025*
