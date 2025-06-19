@@ -4,7 +4,7 @@ collection: teaching
 type: "Undergraduate course"
 permalink: /teaching/2024-microeconomics
 venue: "Institute of Rural Management Anand (IRMA)"
-date: 2024-02-01
+date: 2024-01-01
 location: "Gujarat, India"
 ---
 
