@@ -18,4 +18,3 @@ Using matched data for 3,000 enterprises (1,500 treated, 1,500 control) and a st
 The findings show how well-structured incentives can address market failures and enable SMEs to scale production and reoptimize input use in challenging environments.
 
 **Keywords:** SMEs, conditional subsidies, managerial training, credit constraints, rural markets
-**Status:** Working Paper

@@ -19,4 +19,3 @@ Our findings show that honesty significantly improves enterprise profitability a
 
 **Keywords:** Honesty, informal markets, nano-enterprises, field experiments, behavioral economics
 
-**Status:** Working Paper

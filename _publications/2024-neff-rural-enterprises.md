@@ -19,4 +19,3 @@ Our findings advance understanding of how informal firms adjust production decis
 
 **Keywords:** Nano enterprises, liquidity constraints, financial inclusion, informal markets, rural development
 
-**Status:** Working Paper
