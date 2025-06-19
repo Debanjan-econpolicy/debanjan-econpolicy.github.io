@@ -10,31 +10,13 @@ author_profile: true
 <h2>Journal Articles</h2>
 
 {% for post in site.publications reversed %}
-  <div style="margin-bottom: 40px;">
+  <div style="margin-bottom: 50px;">
     <h3>{{ post.title }}</h3>
     <p><strong>Status:</strong> Working Paper</p>
-    <p>{{ post.excerpt }}</p>
     
-    {% if post.content contains "## Abstract" %}
-      {% assign abstract_start = post.content | split: "## Abstract" %}
-      {% if abstract_start[1] %}
-        {% assign abstract_content = abstract_start[1] | split: "**Keywords:**" | first | strip %}
-        <div style="margin: 15px 0;">
-          <strong>Abstract:</strong>
-          <div style="margin-top: 10px; text-align: justify;">
-            {{ abstract_content | markdownify }}
-          </div>
-        </div>
-      {% endif %}
-    {% endif %}
-    
-    {% if post.content contains "**Keywords:**" %}
-      {% assign keywords_section = post.content | split: "**Keywords:**" %}
-      {% if keywords_section[1] %}
-        {% assign keywords_content = keywords_section[1] | split: "**Status:**" | first | strip %}
-        <p><strong>Keywords:</strong> {{ keywords_content }}</p>
-      {% endif %}
-    {% endif %}
+    <div style="margin-top: 20px;">
+      {{ post.content }}
+    </div>
   </div>
-  <hr>
+  <hr style="margin: 30px 0;">
 {% endfor %}
