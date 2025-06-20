@@ -1,7 +1,7 @@
 clear all
 
 * In your profile.do or a set_environment.do file
-global MGP_root "V:\Projects\TNRTP\MGP\Analysis"
+global MGP_root "V:\Projects\MGP\Analysis"										///Change only this path and follow this folder structure
 global code "${MGP_root}/Code"
 global raw "${MGP_root}/Data/raw" 
 global derived "${MGP_root}/Data/derived"
