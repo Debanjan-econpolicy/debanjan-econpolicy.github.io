@@ -1,0 +1,18 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0\froman Times New Roman;}{\f1\fswiss Arial;}{\f2\fmodern Courier New;}}
+\pard\sb79\sa79\fs29 Table: Treatment-characteristic interactions\par
+\trowd\intbl\trautofit1\trgaph144\sb79\sa0\clbrdrt\brdrs\cellx4872\clbrdrt\brdrs\clmgf\cellx13944\clbrdrt\brdrs\clmrg\cellx15624\clbrdrt\brdrs\clmrg\cellx17304\fs24 \ql \cell \qc Business is running and owner provided consent (1=Yes)\cell \qc \cell \qc \cell\row
+\trowd\intbl\trautofit1\trgaph144\sb0\sa0\cellx4872\clmgf\cellx13944\clmrg\cellx15624\cellx17304\fs24 \ql \cell \qc Subgroup Treatment Effects\cell \qc \cell \qc \cell\row
+\trowd\intbl\trautofit1\trgaph144\sb0\sa79\cellx4872\cellx13944\cellx15624\cellx17304\fs24 \ql Baseline characteristic\cell \qc No\cell \qc Yes\cell \qc Difference\cell\row
+\trowd\intbl\trautofit1\trgaph144\sb79\sa0\clbrdrt\brdrs\cellx4872\clbrdrt\brdrs\cellx13944\clbrdrt\brdrs\cellx15624\clbrdrt\brdrs\cellx17304\fs24 \pard\intbl\ql Female entrepreneur\cell \pard\intbl\tqdec\tx3547 {\fs24 0.368}\cell \pard\intbl\tqdec\tx538 {\fs24 0.412}\cell \pard\intbl\tqdec\tx743 {\fs24 0.043}\cell\row
+\trowd\intbl\trautofit1\trgaph144\sb0\sa79\cellx4872\cellx13944\cellx15624\cellx17304\fs24 \pard\intbl\ql \cell \pard\intbl\tqdec\tx3547 {\fs20 [0.034]***}\cell \pard\intbl\tqdec\tx538 {\fs20 [0.031]***}\cell \pard\intbl\tqdec\tx743 {\fs20 [0.027]}\cell\row
+\trowd\intbl\trautofit1\trgaph144\sb0\sa0\cellx4872\cellx13944\cellx15624\cellx17304\fs24 \pard\intbl\ql Manufacturing enterprise\cell \pard\intbl\tqdec\tx3547 {\fs24 0.000}\cell \pard\intbl\tqdec\tx538 {\fs24 0.000}\cell \pard\intbl\tqdec\tx743 {\fs24 0.000}\cell\row
+\trowd\intbl\trautofit1\trgaph144\sb0\sa79\cellx4872\cellx13944\cellx15624\cellx17304\fs24 \pard\intbl\ql \cell \pard\intbl\tqdec\tx3547 {\fs20 [0.000]}\cell \pard\intbl\tqdec\tx538 {\fs20 [0.000]}\cell \pard\intbl\tqdec\tx743 {\fs20 [0.000]}\cell\row
+\trowd\intbl\trautofit1\trgaph144\sb0\sa0\cellx4872\cellx13944\cellx15624\cellx17304\fs24 \pard\intbl\ql Trade/Retail/Sales enterprise\cell \pard\intbl\tqdec\tx3547 {\fs24 0.000}\cell \pard\intbl\tqdec\tx538 {\fs24 0.000}\cell \pard\intbl\tqdec\tx743 {\fs24 0.000}\cell\row
+\trowd\intbl\trautofit1\trgaph144\sb0\sa79\cellx4872\cellx13944\cellx15624\cellx17304\fs24 \pard\intbl\ql \cell \pard\intbl\tqdec\tx3547 {\fs20 [0.000]}\cell \pard\intbl\tqdec\tx538 {\fs20 [0.000]}\cell \pard\intbl\tqdec\tx743 {\fs20 [0.000]}\cell\row
+\trowd\intbl\trautofit1\trgaph144\sb0\sa0\cellx4872\cellx13944\cellx15624\cellx17304\fs24 \pard\intbl\ql Service enterprise\cell \pard\intbl\tqdec\tx3547 {\fs24 0.000}\cell \pard\intbl\tqdec\tx538 {\fs24 0.000}\cell \pard\intbl\tqdec\tx743 {\fs24 0.000}\cell\row
+\trowd\intbl\trautofit1\trgaph144\sb0\sa79\clbrdrb\brdrs\cellx4872\clbrdrb\brdrs\cellx13944\clbrdrb\brdrs\cellx15624\clbrdrb\brdrs\cellx17304\fs24 \pard\intbl\ql \cell \pard\intbl\tqdec\tx3547 {\fs20 [0.000]}\cell \pard\intbl\tqdec\tx538 {\fs20 [0.000]}\cell \pard\intbl\tqdec\tx743 {\fs20 [0.000]}\cell\row
+\pard\sb0\sa0\fs19 Controls variable selected by pdslasso.\par
+\pard\sb0\sa0\fs19 Robust standard errors in parentheses clustered at Block level.\par
+\pard\sb0\sa79\fs19 *, **, and *** denote significance at the 10, 5, and 1 percent levels respectively.\par
+\pard\sb0\sa0\fs24\par
+}
