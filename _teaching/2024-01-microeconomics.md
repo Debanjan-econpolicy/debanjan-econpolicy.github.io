@@ -1,10 +1,10 @@
 ---
 title: "Teaching Assistant - Microeconomics"
 collection: teaching
-type: "Undergraduate course"
+type: "Postgraduate course"  
 permalink: /teaching/2024-microeconomics
 venue: "Institute of Rural Management Anand (IRMA)"
-date: 2024-01-01
+date: 2024-08-02
 location: "Gujarat, India"
 ---
 
