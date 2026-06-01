@@ -7,15 +7,15 @@ author_profile: true
 
 {% include base_path %}
 
-<h2>Journal Articles</h2>
+<p class="pubs-section-label">Working Papers</p>
 
 {% for post in site.publications reversed %}
-  <div style="margin-bottom: 50px;">
-    <h3>{{ post.title }}</h3>
-    
-    <div style="margin-top: 20px;">
-      {{ post.content }}
-    </div>
+<div class="pub-card">
+  <span class="pub-status">Working Paper</span>
+  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+  <p class="pub-excerpt">{{ post.excerpt }}</p>
+  <div class="pub-links">
+    <a href="{{ post.url }}">View Abstract</a>
   </div>
-  <hr style="margin: 30px 0;">
+</div>
 {% endfor %}

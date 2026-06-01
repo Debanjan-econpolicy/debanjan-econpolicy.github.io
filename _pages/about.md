@@ -8,17 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-**Debanjan Das**
-
-Ph.D. Candidate in Development Economics
-
-Institute of Rural Management Anand (IRMA), India
-
-I will be on the 2025-2026 academic job market, but I'm also happy to discuss industry and policy roles anytime.
-
-I would be more than willing to relocate globally and am particularly interested in opportunities in academic institutions, policy organizations, and development agencies.
-
-My academic work/projects can be found **here**.
+<div class="intro-highlight">
+  <strong>Debanjan Das</strong> &nbsp;·&nbsp; Ph.D. Candidate in Development Economics<br>
+  Institute of Rural Management Anand (IRMA), India<br><br>
+  I am on the <strong>2025–2026 academic job market</strong> and am open to positions at academic institutions, policy organizations, and development agencies globally.
+</div>
 
 ## About me
 
@@ -28,31 +22,28 @@ I approach these questions using rigorous field experiments and quasi-experiment
 
 Beyond enterprise development, I am deeply interested in **survey methodology**—particularly in developing innovative interviewer training approaches that enhance data quality in large-scale household surveys. This methodological work complements my substantive research by ensuring that our evidence base is as robust as possible.
 
-My research interests also extend to **agricultural economics** and rural transformation. Drawing on my background in agricultural extension, I examine how agricultural interventions and integrated farming systems can complement enterprise development initiatives. This broader perspective on rural economic systems helps me understand the complex environment in which many nano enterprises operate across India's diverse agro-climatic zones.
+My research interests also extend to **agricultural economics** and rural transformation. Drawing on my background in agricultural extension, I examine how agricultural interventions and integrated farming systems can complement enterprise development initiatives.
 
 I enjoy bridging complex field realities with rigorous empirical analysis, incorporating behavioral insights into program design, and translating research findings into clear, policy-relevant evidence. I have a particular passion for causal inference methods, applied econometrics, and machine learning applications in development research.
 
-Proponent of **#CausalInference** and evidence-based policymaking.
+## Research Interests
 
-## Research Focus
-
-If you know of interesting field experiment opportunities or innovative approaches to measuring enterprise development, I'd be very happy to hear about it.
-
-## Interests
-
-* Development Economics
-* Financial Inclusion and Microfinance
-* Enterprise Development  
-* Causal Inference and Field Experiments
-* Machine Learning for causal inference analysis and impact evaluation
-* Survey Methodology and Data Quality
-* Behavioral Economics
-* Public Policy and Program Evaluation
+<div class="badges-wrap">
+  <span class="badge">Development Economics</span>
+  <span class="badge">Financial Inclusion &amp; Microfinance</span>
+  <span class="badge">Enterprise Development</span>
+  <span class="badge">Causal Inference &amp; Field Experiments</span>
+  <span class="badge">Survey Methodology &amp; Data Quality</span>
+  <span class="badge">Machine Learning for Impact Evaluation</span>
+  <span class="badge">Behavioral Economics</span>
+  <span class="badge">Public Policy &amp; Program Evaluation</span>
+  <span class="badge">Agricultural Economics</span>
+</div>
 
 ## Education
 
-* Ph.D. candidate in Development Economics, Institute of Rural Management Anand (IRMA), India
-* M.Sc. in Agricultural Economics, ICAR-National Dairy Research Institute
+<div class="edu-item"><span class="edu-icon">🎓</span><span><strong>Ph.D. candidate</strong> in Development Economics — Institute of Rural Management Anand (IRMA), India</span></div>
+<div class="edu-item"><span class="edu-icon">🎓</span><span><strong>M.Sc.</strong> in Agricultural Economics — ICAR-National Dairy Research Institute</span></div>
 
-
+<br>
 My CV can be found [here](/files/Debanjan_CV.pdf).

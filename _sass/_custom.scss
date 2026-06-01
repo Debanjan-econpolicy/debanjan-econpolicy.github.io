@@ -1,0 +1,264 @@
+/* ==========================================================================
+   CUSTOM STYLES — Debanjan Das Academic Website
+   ========================================================================== */
+
+// ── Color palette ──────────────────────────────────────────────────────────
+$accent          : #1a6fa0;
+$accent-dark     : #0d4f8c;
+$accent-light    : #e8f4f8;
+$heading-color   : #1a3a5c;
+
+// ── Override CSS custom properties ─────────────────────────────────────────
+:root {
+  --global-link-color        : #{$accent};
+  --global-link-color-hover  : #{$accent-dark};
+  --global-link-color-visited: #{$accent};
+}
+
+// ── Typography ──────────────────────────────────────────────────────────────
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ── Masthead ────────────────────────────────────────────────────────────────
+.masthead {
+  border-bottom: 3px solid $accent;
+
+  &__inner-wrap {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+  }
+}
+
+.site-title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.greedy-nav {
+  a {
+    font-weight: 500;
+    font-size: 0.92em;
+    letter-spacing: 0.01em;
+
+    &:hover { color: $accent !important; }
+  }
+
+  .visible-links a::before {
+    background: $accent;
+  }
+}
+
+// ── Page headings ───────────────────────────────────────────────────────────
+.page__title {
+  font-weight: 700;
+  color: $heading-color;
+  letter-spacing: -0.02em;
+}
+
+.page__content {
+  h2 {
+    font-size: 1.15em;
+    font-weight: 600;
+    color: $heading-color;
+    border-bottom: 2px solid $accent;
+    padding-bottom: 0.35em;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+  }
+
+  h3 {
+    font-weight: 600;
+    color: $heading-color;
+  }
+}
+
+// ── Author sidebar ──────────────────────────────────────────────────────────
+.author__name {
+  font-size: 1.15em;
+  font-weight: 700;
+  color: $heading-color;
+  letter-spacing: -0.01em;
+}
+
+.author__bio {
+  font-size: 0.84em;
+  line-height: 1.65;
+  color: #555;
+}
+
+.author__urls {
+  a {
+    font-size: 0.88em;
+    font-weight: 500;
+  }
+}
+
+// ── Intro highlight box (used on About page) ────────────────────────────────
+.intro-highlight {
+  background: linear-gradient(135deg, #f0f7fb 0%, #e8f1f7 100%);
+  border-left: 4px solid $accent;
+  border-radius: 6px;
+  padding: 1.1em 1.5em;
+  margin: 0.5em 0 1.8em;
+  font-size: 0.95em;
+  line-height: 1.75;
+  color: #333;
+
+  strong { color: $heading-color; }
+}
+
+// ── Research interest badges ─────────────────────────────────────────────────
+.badges-wrap {
+  margin: 0.4em 0 0.8em;
+}
+
+.badge {
+  display: inline-block;
+  background: $accent-light;
+  color: $accent-dark;
+  border: 1px solid #c0dced;
+  border-radius: 20px;
+  padding: 3px 13px;
+  font-size: 0.8em;
+  font-weight: 500;
+  margin: 3px 4px 3px 0;
+  line-height: 1.6;
+}
+
+// ── Education list ───────────────────────────────────────────────────────────
+.edu-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.7em;
+  font-size: 0.95em;
+  line-height: 1.6;
+
+  .edu-icon {
+    font-size: 1.1em;
+    margin-right: 0.6em;
+    margin-top: 0.05em;
+    flex-shrink: 0;
+  }
+}
+
+// ── Publication cards ────────────────────────────────────────────────────────
+.pub-card {
+  background: #fff;
+  border: 1px solid #dce8ef;
+  border-left: 4px solid $accent;
+  border-radius: 6px;
+  padding: 1.4em 1.6em;
+  margin-bottom: 1.4em;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 5px 16px rgba(26, 111, 160, 0.1);
+    transform: translateY(-2px);
+  }
+
+  h3 {
+    margin: 0 0 0.55em;
+    font-size: 1.02em;
+    font-weight: 600;
+    line-height: 1.45;
+    color: $heading-color;
+
+    a {
+      color: $heading-color;
+      text-decoration: none;
+
+      &:hover {
+        color: $accent;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .pub-status {
+    display: inline-block;
+    background: $accent-light;
+    color: $accent;
+    border: 1px solid #b8dce8;
+    border-radius: 20px;
+    padding: 2px 11px;
+    font-size: 0.73em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75em;
+  }
+
+  .pub-excerpt {
+    color: #4a5568;
+    font-size: 0.9em;
+    line-height: 1.75;
+    margin: 0 0 0.85em;
+  }
+
+  .pub-links {
+    a {
+      display: inline-block;
+      margin-right: 0.5em;
+      margin-top: 0.25em;
+      padding: 4px 14px;
+      border-radius: 4px;
+      font-size: 0.8em;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid $accent;
+      color: $accent;
+      transition: all 0.18s ease;
+
+      &:hover {
+        background: $accent;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// ── Publications page section heading ────────────────────────────────────────
+.pubs-section-label {
+  font-size: 0.72em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $accent;
+  border: none;
+  margin: 0 0 1.2em;
+  padding: 0;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 40px;
+    background: $accent;
+    margin-top: 6px;
+  }
+}
+
+// ── CV page download button ──────────────────────────────────────────────────
+.btn--primary {
+  background-color: $accent;
+  border-color: $accent;
+  font-weight: 600;
+
+  &:hover {
+    background-color: $accent-dark;
+    border-color: $accent-dark;
+  }
+}
+
+// ── Footer ───────────────────────────────────────────────────────────────────
+.page__footer {
+  font-size: 0.8em;
+
+  a { color: lighten($accent, 15%); }
+}
+
+// ── Smooth transitions ────────────────────────────────────────────────────────
+a { transition: color 0.15s ease; }
