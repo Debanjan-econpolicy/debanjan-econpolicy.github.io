@@ -8,9 +8,7 @@ main:
     url: /resources/
   - title: "Teaching"
     url: /teaching/
-  - title: "Blog Posts"
-    url: /year-archive/
-  - title: "CV"     
+  - title: "CV"
     url: /cv/
   - title: "Get in touch"
     url: /contact/
