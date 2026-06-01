@@ -1,3 +1,8 @@
+---
+sitemap: false
+search: false
+---
+
 # CLAUDE.md — Debanjan Das Academic Website
 
 ## Overview
