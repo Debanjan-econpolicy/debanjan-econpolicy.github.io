@@ -7,13 +7,6 @@ redirect_from:
   - /resume
 ---
 
-## CV Coming Soon 📄
+You can download my full academic CV using the link below.
 
-My detailed academic CV will be available here shortly. In the meantime, you can:
-
-- View my [academic profile](/about/) for background information
-- Check out my [teaching experience](/teaching/)
-- Browse my [research resources](/resources/)
-- [Contact me](/contact/) for my current CV
-
-*Last updated: June 2025*
+<a href="/files/Debanjan_CV.pdf" class="btn btn--primary" target="_blank">Download CV (PDF)</a>
