@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Debanjan Das — Development Economist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Design tokens ── */
+    :root {
+      --bg:           #F8F7F4;
+      --surface:      #FFFFFF;
+      --text:         #1A1917;
+      --text-mid:     #4A4845;
+      --text-soft:    #78756F;
+      --blue:         #1B5E8A;
+      --blue-dark:    #133F5C;
+      --blue-wash:    #EAF3F9;
+      --rust:         #C44B1B;
+      --border:       #E4E2DC;
+      --font-serif:   'Playfair Display', Georgia, serif;
+      --font-sans:    'Inter', system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ────────────────────────────────── NAV */
+    #main-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(248, 247, 244, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    #main-nav.scrolled { border-color: var(--border); }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.15s;
+    }
+    .nav-links li a:hover { color: var(--blue); }
+
+    .nav-cv-link {
+      background: var(--blue);
+      color: #fff !important;
+      padding: 5px 14px;
+      border-radius: 3px;
+      transition: background 0.15s !important;
+    }
+    .nav-cv-link:hover { background: var(--blue-dark) !important; color: #fff !important; }
+
+    /* ────────────────────────────────── HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 32px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Signature: coefficient plot ambient art — the visual grammar of causal inference */
+    .hero-art {
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .hero-art svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Fade the art toward the left edge */
+    .hero-art::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
+      z-index: 1;
+    }
+
+    .hero-inner {
+      max-width: 580px;
+      position: relative;
+      z-index: 2;
+      margin-left: calc((100% - 1080px) / 2 + 32px);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-inner { margin-left: 0; }
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 6.5vw, 5.2rem);
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+
+    .hero-sub {
+      font-size: 1.08rem;
+      font-weight: 400;
+      color: var(--text-mid);
+      line-height: 1.65;
+      max-width: 500px;
+      margin-bottom: 38px;
+    }
+
+    .hero-sub strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: transparent;
+      color: var(--text-mid);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 10px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s, transform 0.1s;
+    }
+    .btn-ghost:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+
+    /* ────────────────────────────────── DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); }
+
+    /* ────────────────────────────────── DARK SECTION (interests) */
+    .section-dark {
+      background: var(--blue-dark);
+      padding: 80px 32px;
+    }
+
+    /* ────────────────────────────────── GENERIC SECTION */
+    .section {
+      padding: 80px 32px;
+    }
+
+    .section-inner {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-dark .section-label { color: rgba(255,255,255,0.4); }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 28px;
+      line-height: 1.2;
+    }
+
+    .section-dark .section-title { color: #FFFFFF; }
+
+    .section-prose {
+      color: var(--text-mid);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .section-prose p + p { margin-top: 1em; }
+
+    /* ────────────────────────────────── INTERESTS PILLS */
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.82);
+      font-size: 0.82rem;
+      font-weight: 400;
+      padding: 6px 15px;
+      border-radius: 100px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .pill:hover { background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.28); }
+
+    /* ────────────────────────────────── PAPER CARDS */
+    .papers-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .paper-card {
+      background: var(--surface);
+      border-left: 3px solid var(--blue);
+      padding: 26px 30px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .paper-card:hover {
+      border-color: var(--rust);
+      transform: translateX(4px);
+    }
+
+    .paper-status-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 9px;
+    }
+
+    .paper-title-text {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 9px;
+    }
+
+    .paper-excerpt-text {
+      font-size: 0.875rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .paper-abstract-toggle {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--blue);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s;
+      font-family: var(--font-sans);
+    }
+    .paper-abstract-toggle:hover { color: var(--blue-dark); }
+
+    .paper-abstract {
+      display: none;
+      margin-top: 14px;
+      padding: 16px 18px;
+      background: var(--blue-wash);
+      border-radius: 3px;
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+    .paper-abstract.open { display: block; }
+
+    .paper-keywords {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      font-style: italic;
+    }
+
+    /* ────────────────────────────────── CONFERENCE TIMELINE */
+    .conf-year-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin: 36px 0 16px;
+      display: block;
+    }
+    .conf-year-label:first-of-type { margin-top: 0; }
+
+    .conf-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-left: 20px;
+      border-left: 1px solid var(--border);
+    }
+
+    .conf-item {
+      position: relative;
+      padding: 0 0 24px 24px;
+    }
+    .conf-item:last-child { padding-bottom: 0; }
+
+    .conf-item::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 7px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .conf-name-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .conf-details {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-top: 3px;
+      line-height: 1.55;
+    }
+
+    .conf-award-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--rust);
+      margin-top: 5px;
+    }
+
+    .conf-slides-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--blue);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .conf-slides-link:hover { color: var(--blue-dark); }
+
+    /* ────────────────────────────────── EDUCATION */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .edu-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .edu-icon-box {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      background: var(--blue-wash);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+    }
+
+    .edu-degree-text {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .edu-institution-text {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+      margin-top: 2px;
+    }
+
+    /* ────────────────────────────────── CONTACT */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 36px 40px;
+    }
+
+    .contact-intro {
+      font-size: 0.97rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+    .contact-email-link {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--blue);
+      text-decoration: none;
+      display: inline-block;
+      margin: 18px 0 6px;
+      transition: color 0.15s;
+    }
+    .contact-email-link:hover { color: var(--blue-dark); }
+
+    .contact-note {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      font-style: italic;
+    }
+
+    /* ────────────────────────────────── FOOTER */
+    footer {
+      padding: 28px 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 740px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-name {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-links li a {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links li a:hover { color: var(--blue); }
+
+    /* ────────────────────────────────── RESPONSIVE */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hero { padding: 90px 20px 60px; }
+      .hero-art { display: none; }
+      .section { padding: 60px 20px; }
+      .section-dark { padding: 60px 20px; }
+      .paper-card { padding: 20px; }
+      .contact-card { padding: 24px 20px; }
+      footer { padding: 24px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .jm-badge-dot { animation: none; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════ NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Debanjan Das</a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#conferences">Conferences</a></li>
+      <li><a href="#education">Background</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://debanjan-econpolicy.github.io/files/Debanjan_CV.pdf" target="_blank" class="nav-cv-link">CV ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════ HERO -->
+<header class="hero" id="top">
+
+  <!-- Signature: sparse coefficient plot — the visual shorthand of causal inference -->
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 600 700" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.09" fill="none" stroke="#1B5E8A" stroke-linecap="round">
+        <!-- Axis labels mock-up (very faint) -->
+        <line x1="180" y1="100" x2="180" y2="560" stroke-width="0.8" stroke-dasharray="3,5" opacity="0.5"/>
+
+        <!-- Coefficient rows: line = CI, filled dot = point estimate -->
+        <!-- row 1 -->
+        <line x1="100" y1="155" x2="290" y2="155" stroke-width="1.8"/>
+        <circle cx="195" cy="155" r="5" fill="#1B5E8A"/>
+        <circle cx="100" cy="155" r="3" stroke-width="1.8"/>
+        <circle cx="290" cy="155" r="3" stroke-width="1.8"/>
+
+        <!-- row 2 -->
+        <line x1="130" y1="205" x2="360" y2="205" stroke-width="1.8"/>
+        <circle cx="245" cy="205" r="5" fill="#1B5E8A"/>
+        <circle cx="130" cy="205" r="3" stroke-width="1.8"/>
+        <circle cx="360" cy="205" r="3" stroke-width="1.8"/>
+
+        <!-- row 3 -->
+        <line x1="90" y1="255" x2="240" y2="255" stroke-width="1.8"/>
+        <circle cx="165" cy="255" r="5" fill="#1B5E8A"/>
+        <circle cx="90"  cy="255" r="3" stroke-width="1.8"/>
+        <circle cx="240" cy="255" r="3" stroke-width="1.8"/>
+
+        <!-- row 4 -->
+        <line x1="150" y1="305" x2="420" y2="305" stroke-width="1.8"/>
+        <circle cx="285" cy="305" r="5" fill="#1B5E8A"/>
+        <circle cx="150" cy="305" r="3" stroke-width="1.8"/>
+        <circle cx="420" cy="305" r="3" stroke-width="1.8"/>
+
+        <!-- row 5 -->
+        <line x1="110" y1="355" x2="310" y2="355" stroke-width="1.8"/>
+        <circle cx="210" cy="355" r="5" fill="#1B5E8A"/>
+        <circle cx="110" cy="355" r="3" stroke-width="1.8"/>
+        <circle cx="310" cy="355" r="3" stroke-width="1.8"/>
+
+        <!-- row 6 -->
+        <line x1="80" y1="405" x2="270" y2="405" stroke-width="1.8"/>
+        <circle cx="175" cy="405" r="5" fill="#1B5E8A"/>
+        <circle cx="80"  cy="405" r="3" stroke-width="1.8"/>
+        <circle cx="270" cy="405" r="3" stroke-width="1.8"/>
+
+        <!-- row 7 -->
+        <line x1="140" y1="455" x2="390" y2="455" stroke-width="1.8"/>
+        <circle cx="265" cy="455" r="5" fill="#1B5E8A"/>
+        <circle cx="140" cy="455" r="3" stroke-width="1.8"/>
+        <circle cx="390" cy="455" r="3" stroke-width="1.8"/>
+
+        <!-- row 8 -->
+        <line x1="115" y1="505" x2="330" y2="505" stroke-width="1.8"/>
+        <circle cx="222" cy="505" r="5" fill="#1B5E8A"/>
+        <circle cx="115" cy="505" r="3" stroke-width="1.8"/>
+        <circle cx="330" cy="505" r="3" stroke-width="1.8"/>
+
+        <!-- Bottom x-axis tick marks -->
+        <line x1="180" y1="560" x2="180" y2="568" stroke-width="1"/>
+        <line x1="280" y1="560" x2="280" y2="568" stroke-width="1"/>
+        <line x1="380" y1="560" x2="380" y2="568" stroke-width="1"/>
+        <line x1="480" y1="560" x2="480" y2="568" stroke-width="1"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <h1>Debanjan<br>Das</h1>
+
+    <p class="hero-sub">
+      Ph.D. Candidate in <strong>Development Economics</strong> at IRMA, India &amp; Research Associate at <strong>IIM Ahmedabad</strong>.<br>
+      I study how targeted interventions help rural enterprises grow, formalize, and become resilient — using field experiments and quasi-experimental methods across South Asia.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#research" class="btn-primary">View Research</a>
+      <a href="https://debanjan-econpolicy.github.io/files/Debanjan_CV.pdf" target="_blank" class="btn-ghost">Download CV</a>
+      <a href="#contact" class="btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════ RESEARCH INTERESTS (dark) -->
+<div class="section-dark" id="interests">
+  <div class="section-inner">
+    <span class="section-label">Focus Areas</span>
+    <h2 class="section-title">Research Interests</h2>
+    <div class="pills">
+      <span class="pill">Development Economics</span>
+      <span class="pill">Financial Inclusion &amp; Microfinance</span>
+      <span class="pill">Enterprise Development</span>
+      <span class="pill">Causal Inference &amp; Field Experiments</span>
+      <span class="pill">Survey Methodology &amp; Data Quality</span>
+      <span class="pill">Machine Learning for Impact Evaluation</span>
+      <span class="pill">Behavioral Economics</span>
+      <span class="pill">Public Policy &amp; Program Evaluation</span>
+      <span class="pill">Agricultural Economics</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <span class="section-label">About</span>
+    <h2 class="section-title">My work</h2>
+    <div class="section-prose">
+      <p>My research sits at the intersection of public policy and development economics, with a particular focus on enterprise development and financial inclusion. I am especially interested in how targeted interventions can help micro and nano enterprises — particularly those operating in informal markets — grow, formalize, and become more resilient.</p>
+      <p>I approach these questions using rigorous field experiments and quasi-experimental designs, always with an eye toward improving both program effectiveness and the empirical methods used to evaluate them. My fieldwork spans Tamil Nadu and Gujarat, where I collaborate closely with local institutions to understand how financial inclusion and enterprise support programs can be better designed and implemented.</p>
+      <p>Beyond enterprise development, I am deeply interested in survey methodology — developing innovative interviewer training approaches that enhance data quality in large-scale household surveys. I also examine how agricultural interventions and integrated farming systems complement enterprise development initiatives, drawing on my background in agricultural extension.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════ WORKING PAPERS -->
+<section class="section" id="research">
+  <div class="section-inner">
+    <span class="section-label">Working Papers</span>
+    <h2 class="section-title">Research</h2>
+    <div class="papers-list">
+
+      <div class="paper-card">
+        <div class="paper-status-tag">Working Paper · 2024</div>
+        <div class="paper-title-text">Impact of Conditional Loan Subsidies on Small and Medium Enterprise Performance: Evidence from Tamil Nadu</div>
+        <p class="paper-excerpt-text">Exploits quasi-experimental variation from administrative rejections and staggered rollout across 7 cohorts to identify causal effects of relaxing financial and managerial constraints on 3,000 SMEs.</p>
+        <button class="paper-abstract-toggle" onclick="toggleAbstract(this)">
+          Read abstract <span>↓</span>
+        </button>
+        <div class="paper-abstract">
+          <p>This study investigates how conditional loan subsidies, paired with managerial training, affect production choices and performance of small and medium enterprises operating in credit-constrained rural markets. We exploit quasi-experimental variation generated by administrative rejections unrelated to firm fundamentals, alongside staggered rollout across seven quarterly cohorts in Tamil Nadu (2022–2024).</p>
+          <p style="margin-top:0.8em">Using matched data for 3,000 enterprises and a staggered difference-in-differences framework, we find that alleviating constraints significantly enhances firm survival (39–40% higher), increases revenue (11.4%), and boosts profits (up to 17.9% in early cohorts). Firms shift production strategies with larger strategic investments (average investment up 57%, asset-creation investments up 90%) while maintaining cost efficiency.</p>
+          <p class="paper-keywords"><strong>Keywords:</strong> SMEs, conditional subsidies, managerial training, credit constraints, rural markets</p>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-status-tag">Working Paper · 2024</div>
+        <div class="paper-title-text">Post-Pandemic Resilience and Growth: Evaluating the Impact of the Nano Enterprise Financing Fund (NEFF) on Rural Enterprises in Tamil Nadu</div>
+        <p class="paper-excerpt-text">Analyzes enterprise-level data from 2,576 firms across 208 villages to identify how relaxing liquidity constraints reshapes the production function of informal rural nano-enterprises.</p>
+        <button class="paper-abstract-toggle" onclick="toggleAbstract(this)">
+          Read abstract <span>↓</span>
+        </button>
+        <div class="paper-abstract">
+          <p>This study investigates how alleviating liquidity constraints influences the production function and performance of rural nano enterprises. Using a natural experiment with 2,576 firms across 208 villages and a difference-in-differences framework, we find improved credit access leads to significant increases in profits (0.149 SD) and revenues (0.117 SD) without proportional cost escalation.</p>
+          <p style="margin-top:0.8em">Firms reallocate capital toward fewer, larger investments (0.298 SD) and prioritize working capital (0.156 SD) — the binding constraint on output. Substantial improvements in record-keeping (2.5 SD) suggest enhanced managerial inputs into the production process.</p>
+          <p class="paper-keywords"><strong>Keywords:</strong> Nano enterprises, liquidity constraints, financial inclusion, informal markets, rural development</p>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-status-tag">Working Paper · 2024</div>
+        <div class="paper-title-text">Does Honesty Pay? Evidence from a Field Experiment on Dishonesty and Enterprise Performance in Informal Markets</div>
+        <p class="paper-excerpt-text">Randomizes exposure to opportunities for dishonest behavior across 208 villages to causally identify how honesty affects profitability among 2,576 nano-enterprises, using an IV approach.</p>
+        <button class="paper-abstract-toggle" onclick="toggleAbstract(this)">
+          Read abstract <span>↓</span>
+        </button>
+        <div class="paper-abstract">
+          <p>This study examines whether honesty influences enterprise performance in informal markets, where nano-entrepreneurs operate under weak formal enforcement and thin margins. We designed a novel field experiment involving 2,576 nano-enterprises across 208 villages in Tamil Nadu, randomizing exposure to opportunities for dishonest behavior via a mathematics task mimicking daily business calculations, and exploiting this as an instrument.</p>
+          <p style="margin-top:0.8em">Honesty significantly improves enterprise profitability and revenue, driven by lower transaction costs and enhanced supplier and customer trust. Firms demonstrating greater honesty secured better trade terms, reduced monitoring requirements, and experienced stronger customer loyalty. Honesty acts as a price-discriminating factor in competitive informal markets.</p>
+          <p class="paper-keywords"><strong>Keywords:</strong> Honesty, informal markets, nano-enterprises, field experiments, behavioral economics</p>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-status-tag">Working Paper · 2024</div>
+        <div class="paper-title-text">Data Quality and Autonomy-Supportive Agentic Feedback: Evidence from an Interviewer Training Experiment</div>
+        <p class="paper-excerpt-text">Reports findings from an experiment in 120 Indian villages comparing three interviewer training approaches and their impact on survey data quality in large-scale household surveys.</p>
+        <button class="paper-abstract-toggle" onclick="toggleAbstract(this)">
+          Read abstract <span>↓</span>
+        </button>
+        <div class="paper-abstract">
+          <p>This paper compares three approaches to survey training: agentic-feedback training (AFT), where interviewers received autonomy-supportive feedback; retesting approach (RTA); and the standard restudying approach (RSA). AFT reduced the likelihood of at least one data quality flag per survey by 36.6%, invalid missing responses by 55.3 (relative to control mean of 1,217), and valid skips by 76.25 (relative to control mean of 1,665).</p>
+          <p style="margin-top:0.8em">Improvements were driven by reductions in interviewer effects, enhanced ownership of surveys, and better on-field problem-solving. Cost-effectiveness analysis shows AFT offered significant improvements in data quality relative to expenditure, outperforming both alternatives.</p>
+          <p class="paper-keywords"><strong>Keywords:</strong> Survey methodology, data quality, interviewer training, developing countries, field experiments</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════ CONFERENCES -->
+<section class="section" id="conferences">
+  <div class="section-inner">
+    <span class="section-label">Presentations</span>
+    <h2 class="section-title">Conferences &amp; Workshops</h2>
+
+    <span class="conf-year-label">2026</span>
+    <div class="conf-list">
+      <div class="conf-item">
+        <div class="conf-name-text">IIM Calcutta Economics Research Conference</div>
+        <div class="conf-details">13–14 March · IIM Calcutta · <em>Scheduled</em></div>
+      </div>
+      <div class="conf-item">
+        <div class="conf-name-text">7th Annual Economics Conference — AMSOM, Ahmedabad University</div>
+        <div class="conf-details">9–10 January · "Credit Constraints, Conditional Loan Subsidies, and Enterprise Performance: Evidence from a Developing Country"</div>
+        <a href="https://www.dropbox.com/scl/fi/p7keo8cy8t1x66xaaoazf/MGP_Paper.pdf?rlkey=jofzetw9yg0870exc2l4uxhsq&dl=0" target="_blank" class="conf-slides-link">Download Slides ↗</a>
+      </div>
+    </div>
+
+    <span class="conf-year-label">2025</span>
+    <div class="conf-list">
+      <div class="conf-item">
+        <div class="conf-name-text">Doctoral Colloquium in Management (DOCMAD) — IRMA</div>
+        <div class="conf-details">22–24 December · "Credit Constraints, Conditional Loan Subsidies, and Enterprise Performance: Evidence from a Developing Country"</div>
+        <div class="conf-award-tag">🏆 Third Best Prize — Advanced Research Paper Track</div>
+        <br>
+        <a href="https://www.dropbox.com/scl/fi/p7keo8cy8t1x66xaaoazf/MGP_Paper.pdf?rlkey=jofzetw9yg0870exc2l4uxhsq&dl=0" target="_blank" class="conf-slides-link">Download Slides ↗</a>
+      </div>
+      <div class="conf-item">
+        <div class="conf-name-text">20th Annual Conference on Economic Growth and Development — ISI Delhi</div>
+        <div class="conf-details">18–20 December · "Autonomy-Supportive Interviewer Feedback and Data Quality: Evidence from a Randomized Field Experiment in India"</div>
+        <a href="https://www.dropbox.com/scl/fi/4s2y3ey6vgzntcnjir3o2/Enumerator_Experiment_Final.pdf?rlkey=ggid1b53jxnrpask8k9143eew&dl=0" target="_blank" class="conf-slides-link">Download Slides ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════ EDUCATION -->
+<section class="section" id="education">
+  <div class="section-inner">
+    <span class="section-label">Background</span>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-icon-box">🎓</div>
+        <div>
+          <div class="edu-degree-text">Ph.D. candidate, Development Economics</div>
+          <div class="edu-institution-text">Institute of Rural Management Anand (IRMA), India</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-icon-box">🎓</div>
+        <div>
+          <div class="edu-degree-text">M.Sc. in Agricultural Economics</div>
+          <div class="edu-institution-text">ICAR-National Dairy Research Institute</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════ CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <span class="section-label">Contact</span>
+    <h2 class="section-title">Get in touch</h2>
+    <div class="contact-card">
+      <p class="contact-intro">I am on the job market and welcome outreach about academic positions, research collaborations, and anything related to causal inference, development economics, and public policy. I'm chronically online — expect a fast reply.</p>
+      <a href="mailto:f2101@irma.ac.in" class="contact-email-link">f2101@irma.ac.in</a>
+      <p class="contact-note">Unless it requires a lot of thinking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-name">Debanjan Das · Ph.D. Candidate, IRMA</span>
+    <ul class="footer-links">
+      <li><a href="https://debanjan-econpolicy.github.io" target="_blank">Website ↗</a></li>
+      <li><a href="mailto:f2101@irma.ac.in">Email</a></li>
+      <li><a href="https://debanjan-econpolicy.github.io/files/Debanjan_CV.pdf" target="_blank">CV ↗</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // Nav border on scroll
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
+
+  // Abstract expand/collapse
+  function toggleAbstract(btn) {
+    const card = btn.closest('.paper-card');
+    const abstract = card.querySelector('.paper-abstract');
+    const arrow = btn.querySelector('span');
+    const isOpen = abstract.classList.contains('open');
+    abstract.classList.toggle('open', !isOpen);
+    arrow.textContent = isOpen ? '↓' : '↑';
+    btn.textContent = '';
+    btn.appendChild(document.createTextNode(isOpen ? 'Read abstract ' : 'Hide abstract '));
+    const newArrow = document.createElement('span');
+    newArrow.textContent = isOpen ? '↓' : '↑';
+    btn.appendChild(newArrow);
+  }
+</script>
+
+</body>
+</html>
