@@ -1,9 +1,10 @@
 ---
+layout: custom-page
 title: "Get in touch"
+page_label: "Contact"
 permalink: /contact/
-author_profile: true
 ---
 
-I am a chronically online person, so you can email me at **f2101@irma.ac.in** at anytime, and I will reply to you straight away (unless it is about a subject that requires a lot of thinking).
+I welcome outreach about research collaborations, academic opportunities, and anything related to causal inference, development economics, and public policy.
 
-Feel free to reach out about research collaborations, academic opportunities, or anything related to causal inference, development economics and public policy!
+I am chronically online — email me at [f2101@irma.ac.in](mailto:f2101@irma.ac.in) and expect a fast reply (unless it requires a lot of thinking).

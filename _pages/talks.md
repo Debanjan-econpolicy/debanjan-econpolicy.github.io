@@ -1,8 +1,8 @@
 ---
-layout: archive
-title: "Conference Presentations & Workshops"
+layout: custom-page
+title: "Conference Presentations"
+page_label: "Conferences & Workshops"
 permalink: /conference/
-author_profile: true
 ---
 
 ## 2026

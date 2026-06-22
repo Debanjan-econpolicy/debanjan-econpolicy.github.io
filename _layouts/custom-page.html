@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ page.title }} — Debanjan Das</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
+  <meta name="google-site-verification" content="google641d2ce753795607" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F8F7F4;
+      --surface:   #FFFFFF;
+      --text:      #1A1917;
+      --text-mid:  #4A4845;
+      --text-soft: #78756F;
+      --blue:      #1B5E8A;
+      --blue-dark: #133F5C;
+      --blue-wash: #EAF3F9;
+      --rust:      #C44B1B;
+      --border:    #E4E2DC;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'Inter', system-ui, sans-serif;
+      --font-mono:  'JetBrains Mono', 'Courier New', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    #main-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(248,247,244,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    #main-nav.scrolled { border-color: var(--border); }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.15s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active { color: var(--blue); }
+
+    .nav-cv-link {
+      background: var(--blue);
+      color: #fff !important;
+      padding: 5px 14px;
+      border-radius: 3px;
+      transition: background 0.15s !important;
+    }
+    .nav-cv-link:hover { background: var(--blue-dark) !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 110px 32px 52px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .page-header-inner {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .page-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    /* PAGE BODY */
+    .page-body {
+      padding: 56px 32px 96px;
+    }
+
+    .page-body-inner {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    /* MARKDOWN CONTENT STYLES */
+    .page-body-inner h2 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin: 2.4em 0 0.8em;
+      padding-bottom: 0.4em;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-body-inner h2:first-child { margin-top: 0; }
+
+    .page-body-inner h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 1.6em 0 0.5em;
+    }
+
+    .page-body-inner p {
+      color: var(--text-mid);
+      font-size: 0.97rem;
+      line-height: 1.8;
+      margin-bottom: 1em;
+    }
+
+    .page-body-inner ul, .page-body-inner ol {
+      color: var(--text-mid);
+      font-size: 0.97rem;
+      line-height: 1.8;
+      padding-left: 1.4em;
+      margin-bottom: 1em;
+    }
+
+    .page-body-inner li { margin-bottom: 0.35em; }
+
+    .page-body-inner a {
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .page-body-inner a:hover { color: var(--blue-dark); border-bottom-color: var(--blue-dark); }
+
+    .page-body-inner strong { color: var(--text); font-weight: 600; }
+
+    .page-body-inner hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2em 0;
+    }
+
+    .page-body-inner em { color: var(--text-soft); }
+
+    .page-body-inner blockquote {
+      border-left: 3px solid var(--blue);
+      padding: 10px 20px;
+      margin: 1.5em 0;
+      background: var(--blue-wash);
+      border-radius: 0 4px 4px 0;
+      color: var(--text-mid);
+      font-size: 0.95rem;
+    }
+
+    /* COURSE CARDS (teaching page) */
+    .course-list { display: flex; flex-direction: column; gap: 0; }
+
+    .course-card {
+      background: var(--surface);
+      border-left: 3px solid var(--blue);
+      padding: 28px 32px;
+      margin-bottom: 2px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .course-card:hover { border-color: var(--rust); transform: translateX(4px); }
+
+    .course-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .course-badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--blue-wash);
+      padding: 3px 9px;
+      border-radius: 3px;
+    }
+
+    .course-period {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      letter-spacing: 0.04em;
+    }
+
+    .course-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+
+    .course-role {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+
+    .course-desc {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+
+    /* PUBLICATION CARDS (publications page) */
+    .pub-card {
+      background: var(--surface);
+      border-left: 3px solid var(--blue);
+      padding: 26px 30px;
+      margin-bottom: 2px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .pub-card:hover { border-color: var(--rust); transform: translateX(4px); }
+
+    .pub-status {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .pub-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .pub-card h3 a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: none;
+      transition: color 0.15s;
+    }
+    .pub-card h3 a:hover { color: var(--blue); }
+
+    .pub-excerpt {
+      font-size: 0.875rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .pub-links a {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--blue);
+      text-decoration: none;
+      border: 1px solid var(--blue);
+      border-radius: 3px;
+      padding: 4px 12px;
+      margin-right: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .pub-links a:hover { background: var(--blue); color: #fff; border-bottom: none; }
+
+    .pubs-section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    /* CV PAGE */
+    .cv-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 11px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      border-bottom: none;
+      transition: background 0.15s, transform 0.1s;
+      margin-top: 8px;
+    }
+    .cv-download-btn:hover { background: var(--blue-dark); color: #fff !important; transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 740px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-name { font-size: 0.82rem; color: var(--text-soft); }
+
+    .footer-links { display: flex; gap: 20px; list-style: none; }
+
+    .footer-links li a {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links li a:hover { color: var(--blue); }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .page-header { padding: 90px 20px 40px; }
+      .page-body { padding: 40px 20px 64px; }
+      .course-card { padding: 20px; }
+      .pub-card { padding: 20px; }
+      footer { padding: 24px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-name">Debanjan Das</a>
+    <ul class="nav-links">
+      <li><a href="/#research">Research</a></li>
+      <li><a href="/#conferences">Conferences</a></li>
+      <li><a href="/teaching/"{% if page.url contains 'teaching' %} class="active"{% endif %}>Teaching</a></li>
+      <li><a href="/#education">Background</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/files/Debanjan_CV.pdf" target="_blank" class="nav-cv-link">CV ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="page-header">
+    <div class="page-header-inner">
+      {% if page.page_label %}<span class="section-label">{{ page.page_label }}</span>{% endif %}
+      <h1 class="page-title">{{ page.title }}</h1>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="page-body-inner">
+      {{ content }}
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-name">Debanjan Das · Ph.D. Candidate, IRMA</span>
+    <ul class="footer-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="mailto:f2101@irma.ac.in">Email</a></li>
+      <li><a href="/files/Debanjan_CV.pdf" target="_blank">CV ↗</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
+</script>
+
+</body>
+</html>

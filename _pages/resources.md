@@ -1,7 +1,8 @@
 ---
+layout: custom-page
 title: "Resources"
+page_label: "Economics & Causal Inference"
 permalink: /resources/
-author_profile: true
 ---
 
 # Resources for Economics & Causal Inference
