@@ -1,96 +1,246 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# Debanjan Das — Academic Website
 
-![Academic Pages template example](images/homepage.png "Academic Pages template example")
+Personal academic website for **Debanjan Das**, Ph.D. Candidate in Development Economics at IRMA and Research Associate at IIM Ahmedabad.
 
-# Getting Started
-
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your public repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
-
-See more info at https://academicpages.github.io/
-
-## Running locally
-
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
-
-1. Clone the repository and made updates as detailed above.
-
-### Using a different IDE
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try run `sudo apt install ruby-dev ruby-bundler nodejs` again.
-
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and `.bundle`.
-
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
-
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
-
-## Using Docker
-
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
-
-You can build and execute the container by running the following command in the repository:
-
-```bash
-chmod -R 777 .
-docker compose up
-```
-
-You should now be able to access the website from `localhost:4000`.
-
-### Using the DevContainer in VS Code
-
-If you are using [Visual Studio Code](https://code.visualstudio.com/) you can use the [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) that comes with this Repository. Normally VS Code detects that a development coontainer configuration is available and asks you if you want to use the container. If this doesn't happen you can manually start the container by **F1->DevContainer: Reopen in Container**. This restarts your VS Code in the container and automatically hosts your academic page locally on http://localhost:4000. All changes will be updated live to that page after a few seconds.
-
-# Maintenance
-
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
-
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
-
-## Bugfixes and enhancements
-
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
-
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
+**Live site:** https://debanjan-econpolicy.github.io  
+**Repository:** https://github.com/Debanjan-econpolicy/debanjan-econpolicy.github.io  
+**Branch:** `master` (auto-deploys via GitHub Pages)
 
 ---
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
 
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+## Technology Stack
+
+| Layer | Choice |
+|---|---|
+| Static site generator | Jekyll (via GitHub Pages) |
+| Remote theme | `mmistakes/minimal-mistakes` (kept for config, not for visual rendering) |
+| Custom layout | `_layouts/custom-page.html` — standalone HTML used by all inner pages |
+| Homepage | `index.html` — fully standalone HTML, no Jekyll theme |
+| Fonts | Playfair Display (headings) + Inter (body) + JetBrains Mono (labels/tags) via Google Fonts |
+| Hosting | GitHub Pages (free, auto-builds on push to `master`) |
+
+---
+
+## Architecture
+
+The site uses a **hybrid approach**:
+
+- `index.html` — completely standalone HTML/CSS page. No Jekyll layout, no theme. Acts as the homepage.
+- All inner pages — use `layout: custom-page` defined in `_layouts/custom-page.html`. This is also standalone HTML (no minimal-mistakes theme). It provides the same nav, design tokens, and footer as the homepage.
+- `_config.yml` — Jekyll configuration. Still references `remote_theme: mmistakes/minimal-mistakes` for plugin support and collection handling, but the visual theme is fully overridden.
+
+**Result:** Every page on the site shares the same visual identity — same nav, same fonts, same color palette — regardless of whether it is the homepage or a Jekyll-generated inner page.
+
+---
+
+## Directory Structure
+
+```
+website/
+│
+├── index.html              # Homepage (standalone HTML, no Jekyll layout)
+├── _config.yml             # Jekyll config: site metadata, collections, plugins
+├── _layouts/
+│   └── custom-page.html    # Shared layout for ALL inner pages (nav + footer + CSS)
+│
+├── _pages/                 # One file per site section
+│   ├── about.md            # /about/ — not in main nav
+│   ├── contact.md          # /contact/
+│   ├── cv.md               # /cv/
+│   ├── publications.html   # /publications/
+│   ├── resources.md        # /resources/
+│   ├── talks.md            # /conference/
+│   └── teaching.html       # /teaching/
+│
+├── _publications/          # One .md file per working paper
+├── _teaching/              # One .md file per course (for record-keeping)
+├── _talks/                 # Empty — conference page is manually maintained in _pages/talks.md
+├── _portfolio/             # Empty — not used
+├── _posts/                 # Empty — blog removed
+│
+├── _data/
+│   ├── navigation.yml      # Nav links (used by minimal-mistakes default pages only)
+│   ├── authors.yml
+│   └── ui-text.yml
+│
+├── _sass/
+│   └── _custom.scss        # Kept for backward compat; visual style now in custom-page.html
+│
+├── assets/                 # CSS, JS, webfonts
+├── files/                  # PDFs served at /files/<name>.pdf
+│   ├── Debanjan_CV.pdf     # Live CV — replace to update
+│   ├── paper1.pdf ...      # Working paper PDFs
+│   └── slides1.pdf ...     # Presentation slides
+│
+├── images/                 # profile.jpg, favicons, site-logo.png
+├── scripts/                # cv_markdown_to_json.py, update_cv_json.sh (CV helpers)
+├── progress_logs/          # Session-by-session change log (maintained by Claude)
+│
+├── CLAUDE.md               # Instructions for Claude Code (AI assistant context)
+├── Gemfile                 # Ruby gem dependencies
+├── robots.txt              # SEO: points crawlers to sitemap
+└── google641d2ce753795607.html  # Google Search Console verification (do not delete)
+```
+
+---
+
+## Navigation Structure
+
+All nav links live in `_layouts/custom-page.html` (inner pages) and `index.html` (homepage). Both must be kept in sync manually.
+
+| Label | URL | Source |
+|---|---|---|
+| Research | `/#research` | Section on homepage |
+| Conferences | `/#conferences` | Section on homepage |
+| Teaching | `/teaching/` | `_pages/teaching.html` |
+| Background | `/#education` | Section on homepage |
+| Contact | `/#contact` | Section on homepage |
+| CV ↗ | `/files/Debanjan_CV.pdf` | PDF in `files/` |
+
+---
+
+## Design System
+
+All design tokens are defined as CSS custom properties in both `index.html` and `_layouts/custom-page.html`. If you change a color, update it in **both files**.
+
+| Token | Value | Used for |
+|---|---|---|
+| `--bg` | `#F8F7F4` | Page background (warm off-white) |
+| `--surface` | `#FFFFFF` | Cards, nav |
+| `--text` | `#1A1917` | Primary text |
+| `--text-mid` | `#4A4845` | Secondary text |
+| `--text-soft` | `#78756F` | Labels, captions |
+| `--blue` | `#1B5E8A` | Accent, links, card borders |
+| `--blue-dark` | `#133F5C` | Hover states |
+| `--blue-wash` | `#EAF3F9` | Light blue backgrounds |
+| `--rust` | `#C44B1B` | Hover accent on cards |
+| `--border` | `#E4E2DC` | Dividers, card borders |
+| `--font-serif` | Playfair Display | Headings, name |
+| `--font-sans` | Inter | Body text |
+| `--font-mono` | JetBrains Mono | Labels, tags, code |
+
+---
+
+## How to Update Content
+
+### Add a new working paper
+
+1. Create `_publications/YYYY-short-title.md`:
+
+```yaml
+---
+title: "Full Paper Title"
+collection: publications
+category: manuscripts
+permalink: /publication/YYYY-short-title
+excerpt: 'One-sentence summary shown in the publications list.'
+layout: single
+---
+
+**Status:** Working Paper
+
+**Abstract:** ...
+
+**Keywords:** keyword1, keyword2
+```
+
+2. Upload the PDF to `files/` (e.g. `files/paper4.pdf`).
+3. Add a link in the publication `.md` file if needed.
+4. The paper automatically appears on `/publications/` via the Liquid loop.
+
+### Add a conference presentation
+
+Edit `_pages/talks.md` directly. Add a bullet under the correct year heading:
+
+```markdown
+* DD Month: **Conference Name** at **Institution** on "Paper Title"
+  [Download Slides](link-to-slides)
+```
+
+### Add a teaching entry
+
+Edit `_pages/teaching.html` directly — the teaching cards are hardcoded HTML in that file. Add a new `<div class="course-card">` block following the existing pattern. Also create a record file in `_teaching/` for documentation.
+
+### Update the CV
+
+Replace `files/Debanjan_CV.pdf` with the new version (keep the exact same filename). No other changes needed — both `/cv/` and the About page link to this file.
+
+### Update the About / homepage bio
+
+Edit `index.html`. The hero section (`<header class="hero">`) contains the name, bio text, and action buttons.
+
+### Change a nav link
+
+Edit the `<ul class="nav-links">` block in **both**:
+- `index.html` (homepage nav)
+- `_layouts/custom-page.html` (all inner pages nav)
+
+---
+
+## Deployment
+
+GitHub Pages auto-builds and deploys on every push to `master`. No CI setup needed.
+
+```bash
+git add <files>
+git commit -m "describe what changed"
+git push origin master
+```
+
+Build typically completes in 1–2 minutes. Git identity for this repo:
+- `user.name = Debanjan Das`
+- `user.email = f2101@irma.ac.in`
+
+### Check build status
+
+Go to: `https://github.com/Debanjan-econpolicy/debanjan-econpolicy.github.io/actions`
+
+If the build fails, GitHub will show the Jekyll error in the Actions log.
+
+---
+
+## Local Development
+
+To preview changes locally before pushing:
+
+**Prerequisites:** Ruby, Bundler
+
+```bash
+# Install dependencies (first time only)
+bundle install
+
+# Serve locally with live reload
+bundle exec jekyll serve -l -H localhost
+```
+
+Site available at `http://localhost:4000`. Changes to most files hot-reload automatically; changes to `_config.yml` require a restart.
+
+> **Windows note:** If you get permission errors, run: `bundle config set --local path 'vendor/bundle'` then `bundle install` again.
+
+---
+
+## SEO & Search Console
+
+- **Google Search Console** verified via `google641d2ce753795607.html` (root of repo — do not delete) and the `google_site_verification` meta tag in `_config.yml` and `_layouts/custom-page.html`.
+- **Sitemap** auto-generated by `jekyll-sitemap` plugin at `/sitemap.xml` — submitted to Google Search Console.
+- **robots.txt** in root points crawlers to the sitemap.
+- `CLAUDE.md` is excluded from sitemap and search via frontmatter flags.
+
+---
+
+## Files That Must Not Be Deleted
+
+| File | Why |
+|---|---|
+| `google641d2ce753795607.html` | Google Search Console ownership verification |
+| `google0dcc01e512363f70.html` | Secondary GSC verification file |
+| `robots.txt` | SEO crawler instructions |
+| `Gemfile` | Ruby dependency definition for GitHub Pages |
+| `_config.yml` | Jekyll won't build without this |
+| `_layouts/custom-page.html` | All inner pages break without this |
+
+---
+
+## Progress Log
+
+Session-by-session changes are recorded in [`progress_logs/`](progress_logs/). See that folder's README for the log format.
